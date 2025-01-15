@@ -11,11 +11,21 @@ import java.util.List;
 public class Qservice {
 @Autowired
 QuestionDao questionDao;
-    public List<Question> getAllquestion() {
+    public List<Question> getAllquestion()
+    {
       return  questionDao.findAll();
     }
 
-    public List<Question> getQuestioncategory(String category) {
+    public List<Question> getQuestioncategory(String category)
+    {
         return questionDao.findByCategory(category);
+    }
+
+    public String addQuestion(Question question) {
+         questionDao.save(question);
+         return "success";
+
+
+
     }
 }
